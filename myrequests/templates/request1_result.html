@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Все открытые вакансии</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles/request.css">
+</head>
+<body>
+    {% if table %}
+    <table>
+        <thead>
+            <tr>
+                <th>Номер Вакансии</th>
+                <th>Название Позиции</th>
+                <th>Количество Дней с Открытия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in table %}
+            <tr>
+                <td>{{ row['opening_id'] }}</td>
+                <td>{{ row['job_name'] }}</td>
+                <td>{{ row['days_open'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    {% else %}
+        <p class="no-data">Нет данных для указанной вакансии.</p>
+    {% endif %}
+
+    <div class="button-group">
+        <button class="return" onclick="window.location.href = '/requests';">Назад в меню запросов</button>
+        <button class="return" onclick="window.location.href = '/';">Назад в главное меню</button>
+    </div>
+</body>
+</html>

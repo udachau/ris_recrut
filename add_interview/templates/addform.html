@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Назначение собеседования</title>
+   <!-- <link rel="stylesheet" type="text/css" href="/static/styles/oform.css"> -->
+</head>
+<body>
+    <h1>Назначение собеседования</h1>
+
+    {% if error_message %}
+        <p style="color: red; font-weight: bold;">{{ error_message }}</p>
+    {% endif %}
+
+    <!-- Выбор вакансии -->
+    {% if not selected_position %}
+        <h2>Шаг 1: Выберите вакансию</h2>
+        <form method="post">
+            <select name="position_id" required>
+                <option value="">Выберите вакансию</option>
+                {% for position in positions %}
+                    <option value="{{ position.opening_id }}">{{ position.job_name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Далее</button>
+        </form>
+    {% endif %}
+
+    <!-- Выбор кандидатов -->
+    {% if selected_position %}
+        <h2>Шаг 2: Выберите кандидатов</h2>
+
+        <!-- Список доступных кандидатов -->
+        {% if available_candidates and selected_candidates|length < 5 %}
+            <h3>Список кандидатов</h3>
+            <form method="post">
+                {% for candidate in available_candidates %}
+                    <label>
+                        <input type="radio" name="select_candidate" value="{{ candidate.candidate_id }}" required>
+                        {{ candidate.name }} ({{ candidate.age }}, {{ candidate.gender }}, {{ candidate.city }})
+                    </label>
+                {% endfor %}
+                <button type="submit">Выбрать</button>
+            </form>
+        {% else %}
+            <p style="color: red;">Нет доступных кандидатов</p>
+        {% endif %}
+
+        <!-- Список выбранных кандидатов -->
+        {% if selected_candidates %}
+            <h3>Выбранные кандидаты</h3>
+            <form method="post">
+                {% for candidate in selected_candidates %}
+                    <label>
+                        <input type="radio" name="unselect_candidate" value="{{ candidate.candidate_id }}" required>
+                        {{ candidate.name }} ({{ candidate.age }}, {{ candidate.gender }}, {{ candidate.city }})
+                    </label>
+                {% endfor %}
+                <button type="submit">Отменить выбор</button>
+            </form>
+        {% endif %}
+    {% endif %}
+
+    <!-- Выбор даты -->
+    {% if selected_candidates and not interview_date %}
+        <h2>Шаг 3: Выберите дату</h2>
+        <form method="post">
+            <label for="interview_date">Выберите дату собеседования:</label>
+            <input type="date" name="interview_date" id="interview_date" min="{{ today_date }}" required>
+            <button type="submit">Назначить собеседование</button>
+        </form>
+    {% endif %}
+
+    {% if selected_candidates and interview_date %}
+        <h2>Шаг 4: Подтвердите собеседование</h2>
+
+        {% if position_name %}
+            <p>Вакансия: {{ position_name }}</p>
+        {% else %}
+            <p><strong>Вакансия:</strong> {{ selected_position }}</p>
+        {% endif %}
+
+        <form method="post">
+            <label for="new_interview_date">Выберите дату собеседования:</label>
+            <input type="date" name="new_interview_date" id="new_interview_date" min="{{ today_date }}" value="{{ interview_date }}" required>
+            <button type="submit" name="update_date">Изменить дату</button>
+        </form>
+
+        <p><strong>Кандидаты:</strong></p>
+        <ul>
+            {% for candidate in selected_candidates %}
+                <li>{{ candidate.name }} ({{ candidate.age }}, {{ candidate.gender }}, {{ candidate.city }})</li>
+            {% endfor %}
+        </ul>
+
+        <form method="post">
+            <input type="hidden" name="confirm" value="true">
+            <button type="submit">Подтвердить и сохранить</button>
+        </form>
+    {% endif %}
+    <button onclick="window.location.href='{{ url_for('interview_bp.cancel_interview') }}'" class="btn btn-danger">
+        Отменить запись
+    </button>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/oform.css">
+    <title>Введите код отдела</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Введите код отдела</h1>
+<form action="{{ action_url }}" method="POST">
+    <label for="division_code">{{ param_name }}</label>
+    <input type="text" id="division_code" name="division_code" required>
+    <input type="submit" value="Отправить">
+</form>
+
+        <div class="navigation-buttons">
+            <a href="/requests" class="btn">Вернуться в меню запросов</a>
+            <a href="/menu" class="btn">Вернуться в главное меню</a>
+        </div>
+    </div>
+</body>
+</html>

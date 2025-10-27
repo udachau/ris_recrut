@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* Изоляция стилей для страницы авторизации */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin: 0 auto;
+    margin-top: 5vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body.login-page {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #e9f7ef, #d4f5d4);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.error-message {
+    color: #ff4d4f;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.login-form fieldset {
+    border: none;
+    padding: 0;
+}
+
+.login-form legend {
+    font-size: 24px;
+    font-weight: 600;
+    color: #4caf50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    font-size: 14px;
+    color: #4caf50;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #c8e6c9;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: #4caf50;
+}
+
+/* Общие стили кнопок */
+.submit-button,
+.register-button {
+    display: block;
+    width: 100%; /* Одинаковая ширина */
+    padding: 10px;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+    box-sizing: border-box; /* Учитываем padding в размере кнопки */
+    transition: background-color 0.3s;
+}
+
+/* Зелёная кнопка для "Войти" */
+.submit-button {
+    background: #4caf50;
+}
+
+.submit-button:hover {
+    background-color: #43a047;
+}
+
+/* Синяя кнопка для "Регистрация" */
+.register-button {
+    background: #007bff;
+}
+
+.register-button:hover {
+    background-color: #0056b3;
+}
+
+/* Общие стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Menu Page */
+.menu-page {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.menu-header {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.menu-user {
+    font-size: 16px;
+    color: #4caf50;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.menu-link {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    background: #4caf50;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.menu-link:hover {
+    background: #43a047;
+}
+
+/* Exit Page */
+.exit-page {
+    background: linear-gradient(135deg, #d4f5d4, #e9f7ef);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.exit-message h1 {
+    color: #4caf50;
+    font-size: 36px;
+}
+
+/* Requests Menu */
+.requests-page .request-link {
+    background: #8bc34a;
+}
+
+.requests-page .request-link:hover {
+    background: #7cb342;
+}
+
+/* User Denied */
+.denied-page {
+    background: #ffebee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.denied-message {
+    text-align: center;
+}
+
+.error {
+    font-size: 18px;
+    color: #d32f2f;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    background: #4caf50;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.back-link:hover {
+    background: #43a047;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.register-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background: #4caf50;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    background-color: #43a047;
+}
+
+/* Кнопки одинакового размера */
+.submit-button,
+.register-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #ffffff;
+    background: #4caf50;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    text-decoration: none; /* Убираем подчеркивание для ссылки */
+}
+
+/* Ховер эффект для кнопок */
+.submit-button:hover,
+.register-button:hover {
+    background-color: #43a047;
+}

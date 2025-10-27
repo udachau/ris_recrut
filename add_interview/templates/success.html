@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Собеседование назначено</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/success.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Собеседование успешно назначено!</h1>
+        <p>{{ success_message }}</p>
+        <a href="{{ url_for('interview_bp.add_interview') }}" class="button">Назначить еще одно</a>
+        <button class="return" onclick="window.location.href = '/';">Назад в главное меню</button>>
+    </div>
+</body>
+</html>

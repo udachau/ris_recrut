@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/oform.css">
+    <title>Введите количество месяцев</title>
+</head>
+<body>
+    <div class="form-container">
+        <<h1>Введите год</h1>
+        <form action="/request3" method="POST">
+            <label for="year">Год</label>
+            <input type="number" id="year" name="year" required>
+            <input type="submit" value="Отправить">
+        </form>        
+        <div class="navigation-buttons">
+            <a href="/requests" class="btn">Вернуться в меню запросов</a>
+            <a href="/menu" class="btn">Вернуться в главное меню</a>
+        </div>
+    </div>
+</body>
+</html>

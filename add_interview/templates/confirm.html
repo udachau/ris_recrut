@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Подтверждение собеседования</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles/oform.css">
+</head>
+<body>
+    <h1>Подтверждение данных</h1>
+    <fieldset>
+        <legend>Данные собеседования:</legend>
+        <p><strong>Вакансия:</strong> {{ session.selected_position }}</p>
+        <p><strong>Сотрудник:</strong> {{ session.selected_employee }}</p>
+        <p><strong>Кандидаты:</strong> {{ session.selected_candidates }}</p>
+        <p><strong>Дата:</strong> {{ session.interview_date }}</p>
+    </fieldset>
+
+    <form action="{{ url_for('interview_bp.finalize_interview') }}" method="POST">
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <form action="{{ url_for('interview_bp.add_interview') }}" method="GET">
+        <button type="submit" class="btn-cancel">Отмена</button>
+    </form>
+</body>
+</html>

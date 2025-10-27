@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты анализа отдела</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles/request.css">
+</head>
+<body>
+    {% if table %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID Сотрудника</th>
+                <th>ФИО</th>
+                <th>Дата рождения</th>
+                <th>Город</th>
+                <th>Образование</th>
+                <th>ID Позиции</th>
+                <th>Зарплата</th>
+                <th>Дата устройства</th>
+                <th>Дата увольнения</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in table %}
+            <tr>
+                <td>{{ row['employee_id'] }}</td>
+                <td>{{ row['name'] }}</td>
+                <td>{{ row['birth_date'] }}</td>
+                <td>{{ row['address'] }}</td>
+                <td>{{ row['education'] }}</td>
+                <td>{{ row['position_id'] }}</td>
+                <td>{{ row['salary'] }}</td>
+                <td>{{ row['enrollment_date'] }}</td>
+                <td>{{ row['dismissal_date'] or 'Работает' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    
+    {% else %}
+        <p class="no-data">Нет данных для указанного отдела.</p>
+    {% endif %}
+
+    <div class="button-group">
+        <button class="return" onclick="window.location.href = '/requests';">Назад в меню запросов</button>
+        <button class="return" onclick="window.location.href = '/';">Назад в главное меню</button>
+    </div>
+</body>
+</html>
